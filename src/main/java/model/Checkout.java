@@ -10,6 +10,10 @@ public class Checkout {
 
     private List<Product> products = new ArrayList<>();
 
+    private Integer totalAmount = 0;
+
+    private PriceFormatter priceFormatter = new PriceFormatter();
+
     public Checkout(PricingRules pricingRules) {
         this.pricingRules = pricingRules;
     }
@@ -20,5 +24,9 @@ public class Checkout {
 
     public Integer getProductsQuantity() {
         return products.size();
+    }
+
+    public String getTotal() {
+        return priceFormatter.format(totalAmount);
     }
 }
