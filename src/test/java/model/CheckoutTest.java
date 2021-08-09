@@ -50,4 +50,15 @@ class CheckoutTest {
         assertEquals("25.00 €", checkout.getTotal());
     }
 
+    @Test
+    @DisplayName("Example 3 should cost 81.00 €")
+    void example3() {
+        checkout.scan(ProductFactory.getTShirt());
+        checkout.scan(ProductFactory.getTShirt());
+        checkout.scan(ProductFactory.getTShirt());
+        checkout.scan(ProductFactory.getVoucher());
+        checkout.scan(ProductFactory.getTShirt());
+        assertEquals("81.00 €", checkout.getTotal());
+    }
+
 }
