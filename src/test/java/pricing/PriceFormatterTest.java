@@ -1,9 +1,10 @@
-package model;
+package pricing;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import pricing.PriceFormatter;
 
 class PriceFormatterTest {
 

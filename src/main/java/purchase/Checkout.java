@@ -1,8 +1,10 @@
-package model;
+package purchase;
 
 import java.util.ArrayList;
 import java.util.List;
-import rules.PricingRule;
+import product.Product;
+import pricing.PriceFormatter;
+import pricing.PricingRule;
 
 public class Checkout {
 

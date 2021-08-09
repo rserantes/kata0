@@ -1,8 +1,10 @@
-package rules;
+package pricing;
 
 import java.util.List;
-import model.Product;
-import model.ProductFactory;
+import product.Product;
+import product.ProductFactory;
+import product.ProductRules;
+import pricing.PricingRule;
 
 public class TShirt3OrMoreDiscount implements PricingRule {
 

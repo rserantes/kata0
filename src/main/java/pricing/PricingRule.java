@@ -1,7 +1,7 @@
-package rules;
+package pricing;
 
 import java.util.List;
-import model.Product;
+import product.Product;
 
 public interface PricingRule {
 

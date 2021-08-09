@@ -1,4 +1,4 @@
-package model;
+package purchase;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -7,9 +7,11 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import rules.PricingRule;
-import rules.TShirt3OrMoreDiscount;
-import rules.VoucherTwoForOne;
+import pricing.PricingRule;
+import product.ProductFactory;
+import purchase.Checkout;
+import pricing.TShirt3OrMoreDiscount;
+import pricing.VoucherTwoForOne;
 
 class CheckoutTest {
 

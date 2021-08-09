@@ -1,6 +1,4 @@
-package rules;
-
-import model.Product;
+package product;
 
 public class ProductRules {
 

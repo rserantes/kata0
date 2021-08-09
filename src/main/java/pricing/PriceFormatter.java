@@ -1,4 +1,4 @@
-package model;
+package pricing;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;

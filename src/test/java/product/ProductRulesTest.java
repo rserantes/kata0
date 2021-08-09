@@ -1,8 +1,9 @@
-package rules;
+package product;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import model.ProductFactory;
+import product.ProductFactory;
+import product.ProductRules;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
