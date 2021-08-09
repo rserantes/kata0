@@ -19,7 +19,6 @@ class VoucherTwoForOneTest {
         List<Product> products = new ArrayList<>();
         products.add(ProductFactory.getVoucher());
 
-        assertEquals(0, voucherSpecial.eligibleItems(products));
         assertEquals(0, voucherSpecial.getDiscount(products));
     }
 
@@ -30,7 +29,6 @@ class VoucherTwoForOneTest {
         products.add(ProductFactory.getVoucher());
         products.add(ProductFactory.getVoucher());
 
-        assertEquals(1, voucherSpecial.eligibleItems(products));
         assertEquals(500, voucherSpecial.getDiscount(products));
     }
 
@@ -42,7 +40,6 @@ class VoucherTwoForOneTest {
             products.add(ProductFactory.getVoucher());
         }
 
-        assertEquals(12, voucherSpecial.eligibleItems(products));
         assertEquals(12 * 500, voucherSpecial.getDiscount(products));
     }
 
@@ -55,7 +52,6 @@ class VoucherTwoForOneTest {
             products.add(ProductFactory.getPants());
         }
 
-        assertEquals(12, voucherSpecial.eligibleItems(products));
         assertEquals(12 * 500, voucherSpecial.getDiscount(products));
     }
 

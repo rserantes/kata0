@@ -19,7 +19,6 @@ class TShirt3OrMoreDiscountTest {
         List<Product> products = new ArrayList<>();
         products.add(ProductFactory.getTShirt());
 
-        assertEquals(0, shirtsDiscount.eligibleItems(products));
         assertEquals(0, shirtsDiscount.getDiscount(products));
     }
 
@@ -31,7 +30,6 @@ class TShirt3OrMoreDiscountTest {
         products.add(ProductFactory.getTShirt());
         products.add(ProductFactory.getTShirt());
 
-        assertEquals(3, shirtsDiscount.eligibleItems(products));
         assertEquals(300, shirtsDiscount.getDiscount(products));
     }
 
@@ -43,7 +41,6 @@ class TShirt3OrMoreDiscountTest {
             products.add(ProductFactory.getTShirt());
         }
 
-        assertEquals(25, shirtsDiscount.eligibleItems(products));
         assertEquals(2500, shirtsDiscount.getDiscount(products));
     }
 
@@ -56,7 +53,6 @@ class TShirt3OrMoreDiscountTest {
             products.add(ProductFactory.getPants());
         }
 
-        assertEquals(25, shirtsDiscount.eligibleItems(products));
         assertEquals(2500, shirtsDiscount.getDiscount(products));
     }
 

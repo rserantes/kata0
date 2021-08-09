@@ -7,8 +7,7 @@ import product.ProductRules;
 
 public class VoucherTwoForOne implements PricingRule {
 
-    @Override
-    public Integer eligibleItems(List<Product> products) {
+    private Integer eligibleItems(List<Product> products) {
         return (int)products.stream().filter(ProductRules::isVoucher).count() / 2;
     }
 
