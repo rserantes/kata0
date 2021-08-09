@@ -7,5 +7,5 @@ public interface PricingRule {
 
     Integer eligibleItems(List<Product> products);
 
-    Integer apply(List<Product> products);
+    Integer getDiscount(List<Product> products);
 }

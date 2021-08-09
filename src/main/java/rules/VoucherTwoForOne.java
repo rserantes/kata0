@@ -12,9 +12,7 @@ public class VoucherTwoForOne implements PricingRule {
     }
 
     @Override
-    public Integer apply(List<Product> products) {
-        Integer discountedPrice = products.stream().map(Product::getAmount).reduce(0, Integer::sum);
-        discountedPrice -= eligibleItems(products) * ProductFactory.getVoucher().getAmount();
-        return discountedPrice;
+    public Integer getDiscount(List<Product> products) {
+        return eligibleItems(products) * ProductFactory.getVoucher().getAmount();
     }
 }

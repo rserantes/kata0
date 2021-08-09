@@ -2,11 +2,11 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import rules.PricingRules;
+import rules.PricingRule;
 
 public class Checkout {
 
-    private PricingRules pricingRules;
+    private List<PricingRule> pricingRules;
 
     private List<Product> products = new ArrayList<>();
 
@@ -14,13 +14,16 @@ public class Checkout {
 
     private PriceFormatter priceFormatter = new PriceFormatter();
 
-    public Checkout(PricingRules pricingRules) {
+    public Checkout(List<PricingRule> pricingRules) {
         this.pricingRules = pricingRules;
     }
 
     public void scan(Product product) {
         products.add(product);
-        totalAmount = pricingRules.getDiscountedPrice(products);
+        totalAmount = products.stream().map(Product::getAmount).reduce(0, Integer::sum);
+        for (PricingRule pricingRule: pricingRules) {
+            totalAmount -= pricingRule.getDiscount(products);
+        }
     }
 
     public Integer getProductsQuantity() {

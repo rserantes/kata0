@@ -1,11 +1,14 @@
 package model;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import rules.PricingRules;
+import rules.PricingRule;
+import rules.VoucherTwoForOne;
 
 class CheckoutTest {
 
@@ -13,7 +16,9 @@ class CheckoutTest {
 
     @BeforeEach
     void setup() {
-        checkout = new Checkout(new PricingRules());
+        List<PricingRule> pricingRules = new ArrayList<>();
+        pricingRules.add(new VoucherTwoForOne());
+        checkout = new Checkout(pricingRules);
     }
 
     @Test
