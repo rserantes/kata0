@@ -20,6 +20,7 @@ public class Checkout {
 
     public void scan(Product product) {
         products.add(product);
+        totalAmount = pricingRules.getDiscountedPrice(products);
     }
 
     public Integer getProductsQuantity() {

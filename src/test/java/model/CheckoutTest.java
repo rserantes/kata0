@@ -20,8 +20,11 @@ class CheckoutTest {
     @DisplayName("Scanning a product adds it to the current checkout")
     void scanningAProductAddsIt() {
         assertEquals(0, checkout.getProductsQuantity());
+        assertEquals("0.00 €", checkout.getTotal());
         checkout.scan(ProductFactory.getPants());
         assertEquals(1, checkout.getProductsQuantity());
+        assertEquals("7.50 €", checkout.getTotal());
+
     }
 
 }
