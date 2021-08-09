@@ -26,4 +26,22 @@ public class ProductRulesTest {
         assertFalse(ProductRules.isVoucher(ProductFactory.getPants()));
     }
 
+    @Test
+    @DisplayName("A Gift Card is not a T-Shirt")
+    void giftCardIsNotATShirt() {
+        assertFalse(ProductRules.isTShirt(ProductFactory.getVoucher()));
+    }
+
+    @Test
+    @DisplayName("A Summer T-Shirt is a T-Shirt")
+    void summerTShirtIsATShirt() {
+        assertTrue(ProductRules.isTShirt(ProductFactory.getTShirt()));
+    }
+
+    @Test
+    @DisplayName("A Pant is not a T-Shirt")
+    void pantIsNotATShirt() {
+        assertFalse(ProductRules.isTShirt(ProductFactory.getPants()));
+    }
+
 }
