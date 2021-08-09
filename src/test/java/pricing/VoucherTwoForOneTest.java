@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import product.Product;
 import product.ProductFactory;
+import purchase.CheckoutItem;
 
 class VoucherTwoForOneTest {
 
@@ -16,43 +16,43 @@ class VoucherTwoForOneTest {
     @Test
     @DisplayName("Zero eligible vouchers when only one on checkout")
     void zeroEligibleWhenOneVoucher() {
-        List<Product> products = new ArrayList<>();
-        products.add(ProductFactory.getVoucher());
+        List<CheckoutItem> items = new ArrayList<>();
+        items.add(new CheckoutItem(ProductFactory.getVoucher()));
 
-        assertEquals(0, voucherSpecial.getDiscount(products));
+        assertEquals(0, voucherSpecial.getDiscount(items));
     }
 
     @Test
     @DisplayName("One eligible voucher when two on checkout")
     void oneEligibleWhenTwoVouchers() {
-        List<Product> products = new ArrayList<>();
-        products.add(ProductFactory.getVoucher());
-        products.add(ProductFactory.getVoucher());
+        List<CheckoutItem> items = new ArrayList<>();
+        items.add(new CheckoutItem(ProductFactory.getVoucher()));
+        items.add(new CheckoutItem(ProductFactory.getVoucher()));
 
-        assertEquals(500, voucherSpecial.getDiscount(products));
+        assertEquals(500, voucherSpecial.getDiscount(items));
     }
 
     @Test
     @DisplayName("12 eligible voucher when 25 on checkout")
     void severalEligible() {
-        List<Product> products = new ArrayList<>();
+        List<CheckoutItem> items = new ArrayList<>();
         for (int i = 0; i < 25; i++) {
-            products.add(ProductFactory.getVoucher());
+            items.add(new CheckoutItem(ProductFactory.getVoucher()));
         }
 
-        assertEquals(12 * 500, voucherSpecial.getDiscount(products));
+        assertEquals(12 * 500, voucherSpecial.getDiscount(items));
     }
 
     @Test
     @DisplayName("12 eligible voucher when 25 on checkout and other items")
     void severalEligibleWithOtherItems() {
-        List<Product> products = new ArrayList<>();
+        List<CheckoutItem> items = new ArrayList<>();
         for (int i = 0; i < 25; i++) {
-            products.add(ProductFactory.getVoucher());
-            products.add(ProductFactory.getPants());
+            items.add(new CheckoutItem(ProductFactory.getVoucher()));
+            items.add(new CheckoutItem(ProductFactory.getPants()));
         }
 
-        assertEquals(12 * 500, voucherSpecial.getDiscount(products));
+        assertEquals(12 * 500, voucherSpecial.getDiscount(items));
     }
 
 }

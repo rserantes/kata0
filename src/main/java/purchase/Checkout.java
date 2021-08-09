@@ -10,7 +10,7 @@ public class Checkout {
 
     private List<PricingRule> pricingRules;
 
-    private List<Product> products = new ArrayList<>();
+    private List<CheckoutItem> items = new ArrayList<>();
 
     private Integer totalAmount = 0;
 
@@ -21,15 +21,15 @@ public class Checkout {
     }
 
     public void scan(Product product) {
-        products.add(product);
-        totalAmount = products.stream().map(Product::getAmount).reduce(0, Integer::sum);
+        items.add(new CheckoutItem(product));
+        totalAmount = items.stream().map(CheckoutItem::getPrice).reduce(0, Integer::sum);
         for (PricingRule pricingRule: pricingRules) {
-            totalAmount -= pricingRule.getDiscount(products);
+            totalAmount -= pricingRule.getDiscount(items);
         }
     }
 
     public Integer getProductsQuantity() {
-        return products.size();
+        return items.size();
     }
 
     public String getTotal() {

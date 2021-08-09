@@ -1,10 +1,10 @@
 package pricing;
 
 import java.util.List;
-import product.Product;
+import purchase.CheckoutItem;
 
 public interface PricingRule {
 
-    Integer getDiscount(List<Product> products);
+    Integer getDiscount(List<CheckoutItem> items);
 
 }
