@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import rules.PricingRule;
+import rules.TShirt3OrMoreDiscount;
 import rules.VoucherTwoForOne;
 
 class CheckoutTest {
@@ -18,6 +19,7 @@ class CheckoutTest {
     void setup() {
         List<PricingRule> pricingRules = new ArrayList<>();
         pricingRules.add(new VoucherTwoForOne());
+        pricingRules.add(new TShirt3OrMoreDiscount());
         checkout = new Checkout(pricingRules);
     }
 
