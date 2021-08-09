@@ -4,7 +4,6 @@ import java.util.List;
 import product.Product;
 import product.ProductFactory;
 import product.ProductRules;
-import pricing.PricingRule;
 
 public class TShirt3OrMoreDiscount implements PricingRule {
 

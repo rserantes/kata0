@@ -8,10 +8,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pricing.PricingRule;
-import product.ProductFactory;
-import purchase.Checkout;
 import pricing.TShirt3OrMoreDiscount;
 import pricing.VoucherTwoForOne;
+import product.ProductFactory;
 
 class CheckoutTest {
 

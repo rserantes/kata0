@@ -1,15 +1,13 @@
 package pricing;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
-import pricing.VoucherTwoForOne;
-import product.Product;
-import product.ProductFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pricing.PricingRule;
+import product.Product;
+import product.ProductFactory;
 
 class VoucherTwoForOneTest {
 
