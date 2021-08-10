@@ -22,10 +22,10 @@ public class Checkout {
 
     public void scan(Product product) {
         items.add(new CheckoutItem(product));
-        totalAmount = items.stream().map(CheckoutItem::getPrice).reduce(0, Integer::sum);
         for (PricingRule pricingRule: pricingRules) {
-            totalAmount -= pricingRule.getDiscount(items);
+            pricingRule.apply(items);
         }
+        totalAmount = items.stream().map(CheckoutItem::getPrice).reduce(0, Integer::sum);
     }
 
     public Integer getProductsQuantity() {
