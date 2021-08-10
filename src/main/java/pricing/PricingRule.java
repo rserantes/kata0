@@ -7,4 +7,6 @@ public interface PricingRule {
 
     Integer getDiscount(List<CheckoutItem> items);
 
+    List<CheckoutItem> apply(List<CheckoutItem> items);
+
 }

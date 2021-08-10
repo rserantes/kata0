@@ -1,7 +1,6 @@
 package pricing;
 
 import java.util.List;
-import product.Product;
 import product.ProductFactory;
 import product.ProductRules;
 import purchase.CheckoutItem;
@@ -18,5 +17,15 @@ public class TShirt3OrMoreDiscount implements PricingRule {
     @Override
     public Integer getDiscount(List<CheckoutItem> items) {
         return eligibleItems(items) * (ProductFactory.getTShirt().getAmount() - discountedPrice);
+    }
+
+    @Override
+    public List<CheckoutItem> apply(List<CheckoutItem> items) {
+        if (eligibleItems(items) > 0) {
+            items.stream()
+                    .filter(item -> ProductRules.isTShirt(item.getProduct()))
+                    .forEach(shirt -> shirt.setPrice(discountedPrice));
+        }
+        return items;
     }
 }

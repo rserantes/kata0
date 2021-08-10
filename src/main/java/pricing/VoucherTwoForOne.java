@@ -1,7 +1,6 @@
 package pricing;
 
 import java.util.List;
-import product.Product;
 import product.ProductFactory;
 import product.ProductRules;
 import purchase.CheckoutItem;
@@ -15,5 +14,10 @@ public class VoucherTwoForOne implements PricingRule {
     @Override
     public Integer getDiscount(List<CheckoutItem> items) {
         return eligibleItems(items) * ProductFactory.getVoucher().getAmount();
+    }
+
+    @Override
+    public List<CheckoutItem> apply(List<CheckoutItem> items) {
+        return null;
     }
 }
