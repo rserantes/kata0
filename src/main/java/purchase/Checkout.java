@@ -25,7 +25,11 @@ public class Checkout {
         for (PricingRule pricingRule: pricingRules) {
             pricingRule.apply(items);
         }
-        totalAmount = items.stream().map(CheckoutItem::getPrice).reduce(0, Integer::sum);
+        totalAmount = sumItemsPrice();
+    }
+
+    private Integer sumItemsPrice() {
+        return items.stream().map(CheckoutItem::getPrice).reduce(0, Integer::sum);
     }
 
     public Integer getProductsQuantity() {
