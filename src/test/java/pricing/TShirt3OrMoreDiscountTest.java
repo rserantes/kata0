@@ -38,9 +38,7 @@ class TShirt3OrMoreDiscountTest {
         shirtsDiscount.apply(items);
 
         assertEquals(300, shirtsDiscount.getDiscount(items));
-        assertEquals(1900, items.get(0).getPrice());
-        assertEquals(1900, items.get(1).getPrice());
-        assertEquals(1900, items.get(2).getPrice());
+        allShirtsAreDiscounted(items);
     }
 
     @Test
@@ -54,9 +52,7 @@ class TShirt3OrMoreDiscountTest {
         shirtsDiscount.apply(items);
 
         assertEquals(2500, shirtsDiscount.getDiscount(items));
-        for (CheckoutItem item : items) {
-            assertEquals(1900, item.getPrice());
-        }
+        allShirtsAreDiscounted(items);
 
     }
 
@@ -72,6 +68,10 @@ class TShirt3OrMoreDiscountTest {
         shirtsDiscount.apply(items);
 
         assertEquals(2500, shirtsDiscount.getDiscount(items));
+        allShirtsAreDiscounted(items);
+    }
+
+    private void allShirtsAreDiscounted(List<CheckoutItem> items) {
         for (CheckoutItem item : items) {
             if (ProductRules.isTShirt(item.getProduct())) {
                 assertEquals(1900, item.getPrice());
